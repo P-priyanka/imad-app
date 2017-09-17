@@ -9,8 +9,8 @@ var content = {
     title: 'Article-one | Priyanka',
     heading:'Article one',
     Date: 'Sept 5, 2017',
-    content: 
-        `<p>
+    content: `
+            <p>
                 This is the article one of my first Webapp made on imad hasura console.This content is just an Example to display
                 </p>
                 <p>
@@ -21,6 +21,7 @@ var content = {
                 </p>`
     
 };
+
 function createTemplate (data) {
     var title = data.title;
     var date = data.date;
@@ -56,7 +57,7 @@ function createTemplate (data) {
             </div>
         </body>
     </html>
-            `;
+`;
     return htmlTemplate;
 }
 
@@ -70,7 +71,7 @@ app.get('/article-three', function (req, res) {
     res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
 });
 app.get('/article-one', function (req, res) {
-    res.send(createTemplate(articleone));
+    res.send(createTemplate(articleOne));
 });
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
