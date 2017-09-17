@@ -5,22 +5,48 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var Articleone = {
-    title: 'Article-one | Priyanka',
-    heading:'Article one',
-    Date: 'Sept 5, 2017',
-    content: `
-            <p>
-                This is the article one of my first Webapp made on imad hasura console.This content is just an Example to display
-                </p>
+var articles
+    'article-one' = {
+        title: 'Article-one | Priyanka',
+        heading:'Article one',
+        Date: 'Sept 5, 2017',
+        content: `
                 <p>
                     This is the article one of my first Webapp made on imad hasura console.This content is just an Example to display
+                    </p>
+                    <p>
+                        This is the article one of my first Webapp made on imad hasura console.This content is just an Example to display
+                    </p>
+                    <p>
+                        This is the article one of my first Webapp made on imad hasura console.This content is just an Example to display
+                    </p>`
+        
+    },
+    'article-two' = {
+        title: 'Article-two | Priyanka',
+        heading:'Article two',
+        Date: 'Sept 10, 2017',
+        content:`
+        <p>
+                    This is the article two of my first Webapp made on imad hasura console.This content is just an Example to display
                 </p>
                 <p>
-                    This is the article one of my first Webapp made on imad hasura console.This content is just an Example to display
+                    This is the article two of my first Webapp made on imad hasura console.This content is just an Example to display
+                </p>
+                <p>
+                    This is the article two of my first Webapp made on imad hasura console.This content is just an Example to display
                 </p>`
-    
-};
+    },
+    'article-three' = {
+        title: 'Article-one | Priyanka',
+        heading:'Article one',
+        Date: 'Sept 1, 2017',
+        content:`
+        <p>
+                    This is the Third article of my first Webapp made on imad hasura console.This content is just an Example to display
+        </p>`
+    }
+    };
 
 function createTemplate (data) {
     var title = data.title;
@@ -64,14 +90,10 @@ function createTemplate (data) {
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/article-two', function (req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-app.get('/article-three', function (req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
-app.get('/article-one', function (req, res) {
-    res.send(createTemplate(Articleone));
+
+var articleName = req.param.articleName;
+app.get('/articleName', function (req, res) {
+    res.send(createTemplate(Articles[articleName]));
 });
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
