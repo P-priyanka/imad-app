@@ -5,6 +5,61 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var content = {
+    title: 'Article-one | Priyanka',
+    heading:'Article one',
+    Date: 'Sept 5, 2017',
+    content: 
+        `<p>
+                This is the article one of my first Webapp made on imad hasura console.This content is just an Example to display
+                </p>
+                <p>
+                    This is the article one of my first Webapp made on imad hasura console.This content is just an Example to display
+                </p>
+                <p>
+                    This is the article one of my first Webapp made on imad hasura console.This content is just an Example to display
+                </p>`
+    
+};
+function createTemplate (data) {
+    var title = data.title;
+    var date = data.date;
+    var content = data.content;
+    var heading = data.heading;
+    
+    var htmlTemplate= `
+    <html>
+        <head>
+            <title>
+                ${title}
+            
+            </title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link href="/ui/style.css" rel="stylesheet" />
+    
+        </head>
+        <body>
+            <div class="container">
+                <div>
+                    <a href="/">Home</a>
+                </div>
+                <hr/>
+                <h3>
+                    ${heading}
+                </h3>
+                <div>
+                    ${date}
+                </div>
+                <div>
+                    ${content}
+                </div>
+            </div>
+        </body>
+    </html>
+            `;
+    return htmlTemplate;
+}
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
@@ -15,7 +70,7 @@ app.get('/article-three', function (req, res) {
     res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
 });
 app.get('/article-one', function (req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+    res.send(createTemplate(articleone));
 });
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
