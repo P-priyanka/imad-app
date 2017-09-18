@@ -5,7 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articles
+var articles;
     'article-one' = {
         title: 'Article-one | Priyanka',
         heading:'Article one',
@@ -20,7 +20,6 @@ var articles
                     <p>
                         This is the article one of my first Webapp made on imad hasura console.This content is just an Example to display
                     </p>`
-        
     },
     'article-two' = {
         title: 'Article-two | Priyanka',
