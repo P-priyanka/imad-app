@@ -5,8 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articles;
-    'article-one' = {
+var articles = {
+    'article-one': {
         title: 'Article-one | Priyanka',
         heading:'Article one',
         Date: 'Sept 5, 2017',
@@ -21,7 +21,7 @@ var articles;
                         This is the article one of my first Webapp made on imad hasura console.This content is just an Example to display
                     </p>`
     },
-    'article-two' = {
+    'article-two': {
         title: 'Article-two | Priyanka',
         heading:'Article two',
         Date: 'Sept 10, 2017',
@@ -36,7 +36,7 @@ var articles;
                     This is the article two of my first Webapp made on imad hasura console.This content is just an Example to display
                 </p>`
     },
-    'article-three' = {
+    'article-three':  {
         title: 'Article-one | Priyanka',
         heading:'Article one',
         Date: 'Sept 1, 2017',
@@ -45,7 +45,7 @@ var articles;
                     This is the Third article of my first Webapp made on imad hasura console.This content is just an Example to display
         </p>`
     }
-    };
+};
 
 function createTemplate (data) {
     var title = data.title;
