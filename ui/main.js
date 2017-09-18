@@ -6,6 +6,6 @@ element.innerHTML='New Content';
 //Move the image
 var img = document.getElementbyId('pari');
 img.onclick = function() {
-    var interval = setInterval(moveRight,50);
-}
+    img.style.marginLeft= '100 px';
+};
     
