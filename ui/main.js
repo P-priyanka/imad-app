@@ -1,7 +1,8 @@
 console.log('Loaded!');
 
 //change the txt of main-text
-var element = document.getElementbyId('main-text');
+var element = document.getElementbyId('main-text'
+    );
 
 element.innerHTML='New Value';
 
@@ -9,7 +10,7 @@ element.innerHTML='New Value';
 var img = document.getElementById('madi');
 var marginLeft = 0;
 function moveRight() {
-    marginLeft = marginLeft+5;
+    marginLeft = marginLeft + 5;
     img.style.marginLeft = marginLeft + 'px';
 }
 img.onclick = function() {
