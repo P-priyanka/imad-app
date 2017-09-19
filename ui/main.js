@@ -22,6 +22,6 @@ button.onclick = function() {
         //Not yet Done
     };
     //Make a Request
-    request.open( 'GET', 'http://priyankasingh8568.imad.hasura-app.io' ,true);
+    request.open( 'GET', 'http://priyankasingh8568.imad.hasura-app.io/counter' ,true);
     request.send(null);
 };
