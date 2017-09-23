@@ -48,6 +48,6 @@ button.onclick = function() {
     //Make a Request
     var nameInput=document.getElementById('name');
     var name= nameInput.value;
-    request.open( 'GET', 'http://priyankasingh8568.imad.hasura-app.io/counter/submit-name?name' +name,true);
+    request.open( 'GET', 'http://priyankasingh8568.imad.hasura-app.io/counter/submit-name?name=' +name, true);
     request.send(null);
 };
