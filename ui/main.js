@@ -13,11 +13,9 @@ button.onclick = function() {
     
     var request = new XMLHttpRequest();
     
-    
             var counter = request.responseText;
             var span = document.getElementById('count');
             span.innerHTML= counter.toString();
-        }
       }
         //Not yet Done
     };
