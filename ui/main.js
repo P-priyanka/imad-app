@@ -8,17 +8,28 @@ button.onclick = function() {
     request.open( 'GET', 'http://priyankasingh8568.imad.hasura-app.io/counter',true);
     request.send(null);
 }; 
-
-//submit name
-var submit=document.getElementById('submit_btn');
-submit.onclick = function() {
-    //
     
     //Create a Request object
     
     var request = new XMLHttpRequest();
     
+    
+            var counter = request.responseText;
+            var span = document.getElementById('count');
+            span.innerHTML= counter.toString();
+        }
+      }
+        //Not yet Done
+    };
+    //submit name
+    var submit=document.getElementById('submit_btn');
+    submit.onclick = function() {
+    //Create a Request object
+    
+    var request = new XMLHttpRequest();
+    
     //capture and restore it in a variable
+    
     request.onreadystatechange = function() {
     if(request.readyState === XMLhttpRequest.DONE) {
         //take some action
@@ -32,14 +43,8 @@ submit.onclick = function() {
     }
     var ul= document.getElementById('namelist');
     ul.innerHTML = list;
-            var counter = request.responseText;
-            var span = document.getElementById('count');
-            span.innerHTML= counter.toString();
         }
-      }
-        //Not yet Done
-    };
-    
+    }
     //Make a Request
     var nameInput=document.getElementById('name');
     var name= nameInput.value;
